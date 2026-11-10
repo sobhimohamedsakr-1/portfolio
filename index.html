@@ -141,6 +141,15 @@ h2 em { font-family: var(--f-serif); font-weight: 400; letter-spacing: -.01em; f
 .th .pl { position: absolute; left: 50%; top: 50%; width: 3.4rem; height: 3.4rem; margin: -1.7rem 0 0 -1.7rem; border-radius: 50%; background: #0B0A12; opacity: 0; transform: scale(.7); transition: opacity .2s, transform .2s; display: grid; place-items: center; }
 .th .pl::after { content: ""; border-left: .8rem solid var(--lime); border-block: .5rem solid transparent; margin-left: .2rem; }
 .item:hover .pl, .item:focus-visible .pl { opacity: 1; transform: scale(1); }
+.vm { position: fixed; inset: 0; z-index: 100; background: rgba(8,7,13,.92); display: none; align-items: center; justify-content: center; padding: 1rem; }
+.vm.on { display: flex; }
+.vm-box { position: relative; background: #000; border: 1px solid var(--line); }
+.vm-box.land { width: min(94vw, 1100px, calc(82vh * 16 / 9)); aspect-ratio: 16 / 9; }
+.vm-box.tall { height: min(82vh, 900px); aspect-ratio: 9 / 16; max-width: 94vw; }
+.vm-box iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.vm-bar { position: absolute; left: 0; right: 0; top: -2.6rem; display: flex; justify-content: space-between; align-items: center; gap: 1rem; font-family: var(--f-mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; }
+.vm-bar a { color: var(--mute); text-decoration: underline; }
+.vm-bar button { font: inherit; letter-spacing: inherit; text-transform: inherit; background: var(--lime); color: #0B0A12; border: 0; padding: .5rem .9rem; cursor: pointer; }
 .item h3 { margin: 0; font-family: var(--f-serif); font-style: italic; font-weight: 400; font-size: 2.1rem; line-height: 1; }
 .item p { margin: .4rem 0 0; color: var(--mute); font-size: .9375rem; line-height: 1.5; }
 .sample { margin: 2rem 0 0; }
@@ -340,6 +349,7 @@ footer .row2 { max-width: 72rem; margin-inline: auto; display: flex; flex-wrap: 
     </div>
   </section>
 </main>
+<div class="vm" id="vm" role="dialog" aria-modal="true" aria-label="Video player"><div class="vm-box" id="vmb"><div class="vm-bar"><a id="vma" href="#" target="_blank" rel="noopener">Open in Drive</a><button type="button" id="vmx">Close ✕</button></div><iframe id="vmf" allow="autoplay; fullscreen" allowfullscreen title="Video"></iframe></div></div>
 
 <footer>
   <div class="row2">
@@ -405,8 +415,26 @@ footer .row2 { max-width: 72rem; margin-inline: auto; display: flex; flex-wrap: 
     a.className = "item" + (w.land ? " land" : "") + (w.wide ? " wide" : ""); a.href = w.u || "#work"; a.dataset.f = w.f; if (w.u) { a.target = "_blank"; a.rel = "noopener"; }
     a.innerHTML = '<div class="th"><img src="' + w.i + '.jpg" alt="' + w.t + ' thumbnail" loading="lazy"><span class="pl" aria-hidden="true"></span></div>' +
       '<div><span class="label">' + w.f + '</span><h3>' + w.t + '</h3><p>' + w.d + '</p></div>';
+    if (w.u) a.addEventListener("click", function (e) { e.preventDefault(); openVid(w); });
     grid.appendChild(a);
   });
+  var vm = document.getElementById("vm"), vmb = document.getElementById("vmb"), vmf = document.getElementById("vmf"), lastA = null;
+  function openVid(w) {
+    lastA = document.activeElement;
+    vmb.className = "vm-box " + (w.land ? "land" : "tall");
+    vmf.title = w.t;
+    vmf.src = w.u.replace(/\/view.*$/, "/preview");
+    document.getElementById("vma").href = w.u;
+    vm.classList.add("on"); document.body.style.overflow = "hidden";
+    document.getElementById("vmx").focus();
+  }
+  function closeVid() {
+    vm.classList.remove("on"); vmf.src = "about:blank"; document.body.style.overflow = "";
+    if (lastA && lastA.focus) lastA.focus();
+  }
+  document.getElementById("vmx").addEventListener("click", closeVid);
+  vm.addEventListener("click", function (e) { if (e.target === vm) closeVid(); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape" && vm.classList.contains("on")) closeVid(); });
   var chips = document.querySelectorAll(".chip");
   chips.forEach(function (ch) {
     ch.addEventListener("click", function () {
