@@ -150,6 +150,8 @@ h2 em { font-family: var(--f-serif); font-weight: 400; letter-spacing: -.01em; f
 .vm-bar { position: absolute; left: 0; right: 0; top: -2.6rem; display: flex; justify-content: space-between; align-items: center; gap: 1rem; font-family: var(--f-mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; }
 .vm-bar a { color: var(--mute); text-decoration: underline; }
 .vm-bar button { font: inherit; letter-spacing: inherit; text-transform: inherit; background: var(--lime); color: #0B0A12; border: 0; padding: .5rem .9rem; cursor: pointer; }
+.item.feat { grid-column: 1 / -1; grid-template-columns: minmax(0, 1fr); align-items: center; }
+@media (min-width: 760px) { .item.feat { grid-template-columns: minmax(0, 22rem) minmax(0, 1fr); gap: 2.5rem; } .item.feat h3 { font-size: clamp(2.6rem, 5vw, 4rem); } .item.feat p { font-size: 1.125rem; max-width: 34ch; } }
 .item h3 { margin: 0; font-family: var(--f-serif); font-style: italic; font-weight: 400; font-size: 2.1rem; line-height: 1; }
 .item p { margin: .4rem 0 0; color: var(--mute); font-size: .9375rem; line-height: 1.5; }
 .sample { margin: 2rem 0 0; }
@@ -265,14 +267,14 @@ footer .row2 { max-width: 72rem; margin-inline: auto; display: flex; flex-wrap: 
               <span class="sel"><i class="bar l"></i><i class="bar r"></i><svg class="burst" style="color:var(--lime)" aria-hidden="true"><use href="#burst"/></svg>Video &amp; Motion</span>
             </h1>
             <p class="lede">Here are the cuts that matter. I edit <b>talking-head videos</b>, ads and shorts, and I animate logos and <b>motion graphics</b> for brands that want to look as good as the work they do.</p>
-            <div class="cta"><a class="btn solid" href="#work">View my work ↓</a><a class="btn" href="#contact">Start a project</a></div>
+            <div class="cta"><a class="btn solid" href="#work">View my work ↓</a><a class="btn" href="https://wa.me/201040528141?text=Hi%20Sobhi%2C%20I%20would%20like%20to%20start%20a%20project." target="_blank" rel="noopener">Start a project</a></div>
           </div>
           <div class="card-wrap">
             <div class="poster" id="poster">
               <span class="gh g1" aria-hidden="true">wo</span><span class="gh g2" aria-hidden="true">rk</span>
               <canvas id="ht-cv" role="img" aria-label="A halftone play button lit by your cursor"></canvas>
               <p class="pt">Selected work</p>
-              <p class="pb">2026<small>Edit · Motion · Ads</small></p>
+              <p class="pb">2027<small>Edit · Motion · Ads</small></p>
               <p class="pr">Sobhi Sakr<br><small class="serif" style="font-size:.7em">film &amp; motion</small></p>
             </div>
             <svg class="card-burst" style="color:var(--purple)" aria-hidden="true"><use href="#burst"/></svg>
@@ -328,7 +330,7 @@ footer .row2 { max-width: 72rem; margin-inline: auto; display: flex; flex-wrap: 
         <div class="step"><span class="n">04</span><h3>Finish</h3><p>Colour matched, voice and music balanced.</p></div>
         <div class="step last"><span class="n">05</span><h3>Deliver</h3><p>One consolidated round of notes, then final exports.</p></div>
       </div>
-      <div class="tools" aria-label="Tools"><span>After Effects</span></div>
+      <div class="tools" aria-label="Tools"><span>After Effects</span><span>Premiere Pro</span><span>Photoshop</span><span>Illustrator</span><span>Media Encoder</span><span>CapCut</span></div>
     </div>
   </section>
 
@@ -349,12 +351,12 @@ footer .row2 { max-width: 72rem; margin-inline: auto; display: flex; flex-wrap: 
     </div>
   </section>
 </main>
-<div class="vm" id="vm" role="dialog" aria-modal="true" aria-label="Video player"><div class="vm-box" id="vmb"><div class="vm-bar"><a id="vma" href="#" target="_blank" rel="noopener">Open in Drive</a><button type="button" id="vmx">Close ✕</button></div><iframe id="vmf" allow="autoplay; fullscreen" allowfullscreen title="Video"></iframe></div></div>
+<div class="vm" id="vm" role="dialog" aria-modal="true" aria-label="Video player"><div class="vm-box" id="vmb"><div class="vm-bar"><a id="vma" href="#" target="_blank" rel="noopener">Open on YouTube</a><button type="button" id="vmx">Close ✕</button></div><iframe id="vmf" allow="autoplay; fullscreen" allowfullscreen title="Video"></iframe></div></div>
 
 <footer>
   <div class="row2">
     <a class="brand" href="#top" aria-label="Back to top"><svg class="logo" aria-hidden="true"><use href="#mark"/></svg><b>Sobhi Sakr</b></a>
-    <span class="label">© <span id="yr">2026</span> Sobhi Sakr · Video &amp; motion · Made with feeling</span>
+    <span class="label">© <span id="yr">2027</span> Sobhi Sakr · Video &amp; motion · Made with feeling</span>
   </div>
 </footer>
 
@@ -400,22 +402,23 @@ footer .row2 { max-width: 72rem; margin-inline: auto; display: flex; flex-wrap: 
       }
   }
   var work = [
-    { t: "Back in Motion", d: "A motion graphics film about a factory at a standstill, and how Techno restarts it with modern technology.", f: "Motion graphics", i: "motion", land: 1, wide: 1, u: "https://drive.google.com/file/d/1zYk_0EUxOm59j-wAwmYgqT6jk8_gq6I6/view?usp=drivesdk" },
-    { t: "First Sip", d: "A short vertical advert for a coffee brand.", f: "Ads", i: "coffee", u: "https://drive.google.com/file/d/1FLZypCuXVz0pOeiOWpAPza9ncIT7D75r/view?usp=drivesdk" },
-    { t: "Zoom Logo Animation", d: "An animated logo reveal for Zoom.", f: "Logo animation", i: "zoom", land: 1, u: "https://drive.google.com/file/d/1WP79iaAEY6D5jlO8dBaNxKTf16eW5teX/view?usp=drivesdk" },
-    { t: "Saudi National Day Logo", d: "An animated logo for Saudi National Day 95.", f: "Logo animation", i: "saudi", land: 1, u: "https://drive.google.com/file/d/10SQRmNm1F4bifKeBfj7KQKq_-qamU0uj/view?usp=drivesdk" },
-    { t: "New Walls, New Home", d: "A short vertical advert for an apartment finishing and painting company.", f: "Ads", i: "paint", u: "https://drive.google.com/file/d/10Zqd8zr6MCSVhumuUeNV--SrExyKPjzw/view?usp=drivesdk" },
-    { t: "Straight to Camera", d: "A vertical talking-head video, edited for pace and clarity.", f: "Talking head", i: "talking", u: "https://drive.google.com/file/d/15HKo33fKhA9ruLTQXvZbe33S-c2HZfd7/view?usp=drivesdk" },
-    { t: "The Chip That Changed Everything", d: "A short telling the story of Nvidia.", f: "Shorts", i: "nvidia", u: "https://drive.google.com/file/d/1gtdzOPegcq8N92bRYyqaCz3PxxBuNIIJ/view?usp=drivesdk" },
-    { t: "The Iraq Agency Standard", d: "A short about how many agencies there are in Iraq and the standards they work to.", f: "Shorts", i: "iraq", u: "https://drive.google.com/file/d/17d7Veq8YaCG4Q1NHSHwdg_ugvQ-a6O3E/view?usp=drivesdk" }
+    { t: "The Iraq Agency Standard", d: "How many agencies are there in Iraq, and the standards they work to. My strongest short.", f: "Shorts", i: "iraq", y: "6183e0ATmOs", feat: 1 },
+    { t: "The Chip That Changed Everything", d: "A short telling the story of Nvidia.", f: "Shorts", i: "nvidia", y: "Uoql544u5SY" },
+    { t: "First Sip", d: "A short vertical advert for a coffee brand.", f: "Ads", i: "coffee", y: "paGLW5NnRXk" },
+    { t: "Zoom Logo Animation", d: "An animated logo reveal for Zoom.", f: "Logo animation", i: "zoom", land: 1, y: "KUDyckn_s1E" },
+    { t: "Saudi National Day Logo", d: "An animated logo for Saudi National Day 95.", f: "Logo animation", i: "saudi", land: 1, y: "XqeBacuEugg" },
+    { t: "Back in Motion", d: "A motion graphics film about a factory at a standstill, and how Techno restarts it with modern technology.", f: "Motion graphics", i: "motion", land: 1, wide: 1, y: "AXkqNbgeGOQ" },
+    { t: "Straight to Camera", d: "A vertical talking-head video, edited for pace and clarity.", f: "Talking head", i: "talking", y: "j3_A1WSJxXg" },
+    { t: "New Walls, New Home", d: "A short vertical advert for an apartment finishing and painting company.", f: "Ads", i: "paint", y: "1m8XqiN4Qes" }
   ];
   var grid = document.getElementById("grid");
   work.forEach(function (w) {
     var a = document.createElement("a");
-    a.className = "item" + (w.land ? " land" : "") + (w.wide ? " wide" : ""); a.href = w.u || "#work"; a.dataset.f = w.f; if (w.u) { a.target = "_blank"; a.rel = "noopener"; }
+    a.className = "item" + (w.land ? " land" : "") + (w.wide ? " wide" : "") + (w.feat ? " feat" : ""); a.href = "https://youtu.be/" + w.y; a.dataset.f = w.f; if (w.u) { a.target = "_blank"; a.rel = "noopener"; }
     a.innerHTML = '<div class="th"><img src="' + w.i + '.jpg" alt="' + w.t + ' thumbnail" loading="lazy"><span class="pl" aria-hidden="true"></span></div>' +
-      '<div><span class="label">' + w.f + '</span><h3>' + w.t + '</h3><p>' + w.d + '</p></div>';
-    if (w.u) a.addEventListener("click", function (e) { e.preventDefault(); openVid(w); });
+      '<div><span class="label">' + (w.feat ? "Featured · " : "") + w.f + '</span><h3>' + w.t + '</h3><p>' + w.d + '</p></div>';
+    a.target = "_blank"; a.rel = "noopener";
+    a.addEventListener("click", function (e) { e.preventDefault(); openVid(w); });
     grid.appendChild(a);
   });
   var vm = document.getElementById("vm"), vmb = document.getElementById("vmb"), vmf = document.getElementById("vmf"), lastA = null;
@@ -423,8 +426,8 @@ footer .row2 { max-width: 72rem; margin-inline: auto; display: flex; flex-wrap: 
     lastA = document.activeElement;
     vmb.className = "vm-box " + (w.land ? "land" : "tall");
     vmf.title = w.t;
-    vmf.src = w.u.replace(/\/view.*$/, "/preview");
-    document.getElementById("vma").href = w.u;
+    vmf.src = "https://www.youtube-nocookie.com/embed/" + w.y + "?rel=0&playsinline=1&autoplay=1";
+    document.getElementById("vma").href = "https://youtu.be/" + w.y;
     vm.classList.add("on"); document.body.style.overflow = "hidden";
     document.getElementById("vmx").focus();
   }
@@ -514,7 +517,6 @@ footer .row2 { max-width: 72rem; margin-inline: auto; display: flex; flex-wrap: 
     function fb() { var rg = document.createRange(); rg.selectNodeContents(mail); var sl = window.getSelection(); sl.removeAllRanges(); sl.addRange(rg); }
     if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(mail.textContent).then(done, fb); else fb();
   });
-  document.getElementById("yr").textContent = new Date().getFullYear();
 })();
 </script>
 
